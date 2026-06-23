@@ -124,7 +124,7 @@ function Sekolah() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Website Static</span>
+                  <span className="text-gray-700">Website Dinamis</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />

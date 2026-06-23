@@ -114,13 +114,17 @@ function Perusahaan() {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
               <p className="text-gray-600 mb-6">Untuk startup kecil</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 4.000.000</span>
+                <span className="text-4xl font-extrabold text-gray-900">Rp 1.000.000</span>
                 <span className="text-gray-600">/project</span>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">8 Halaman</span>
+                  <span className="text-gray-700">1 Halaman</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
+                  <span className="text-gray-700">Website Dinamis</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
@@ -128,15 +132,11 @@ function Perusahaan() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Layanan & Produk</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
                   <span className="text-gray-700">Responsive Design</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">2 Bulan Support</span>
+                  <span className="text-gray-700">1 Bulan Support</span>
                 </li>
               </ul>
               <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
@@ -150,13 +150,13 @@ function Perusahaan() {
               <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
               <p className="text-primary-100 mb-6">Untuk perusahaan menengah</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">Rp 10.000.000</span>
+                <span className="text-4xl font-extrabold text-white">Rp 3.000.000</span>
                 <span className="text-primary-100">/project</span>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">15 Halaman</span>
+                  <span className="text-white">3 Halaman</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
@@ -164,15 +164,15 @@ function Perusahaan() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Blog & Berita</span>
+                  <span className="text-white">CMS Admin Panel</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">SEO Optimized</span>
+                  <span className="text-white">Responsive Design</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">6 Bulan Support</span>
+                  <span className="text-white">2 Bulan Support</span>
                 </li>
               </ul>
               <Link to="/#contact" className="block text-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition">
@@ -183,13 +183,13 @@ function Perusahaan() {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
               <p className="text-gray-600 mb-6">Untuk perusahaan besar</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 20.000.000</span>
+                <span className="text-4xl font-extrabold text-gray-900">Rp 15.000.000</span>
                 <span className="text-gray-600">/project</span>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Halaman Unlimited</span>
+                  <span className="text-gray-700">15 Halaman</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
@@ -197,15 +197,15 @@ function Perusahaan() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Multi-language</span>
+                  <span className="text-gray-700">CMS Admin Panel</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Custom CRM</span>
+                  <span className="text-gray-700">SEO Optimized</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">12 Bulan Support</span>
+                  <span className="text-gray-700">5 Bulan Support</span>
                 </li>
               </ul>
               <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
