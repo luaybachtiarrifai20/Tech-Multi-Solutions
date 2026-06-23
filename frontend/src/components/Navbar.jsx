@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoWhite from "../assets/logo_white.png";
 
 function Navbar({ activePage }) {
   const navLinks = [
@@ -14,7 +15,7 @@ function Navbar({ activePage }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="text-2xl font-bold text-primary-600">
-            Tech Multi Solution
+            <img src={logoWhite} alt="Tech Multi Solution" className="h-14" />
           </Link>
           <div className="hidden md:flex space-x-8 items-center">
             {navLinks.map((link) => (

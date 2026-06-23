@@ -1,0 +1,14 @@
+# robots.txt for Tech Multi Solution
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://techmultisolution.com/sitemap.xml
+
+# Disallow specific paths if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay (optional)
+# Crawl-delay: 1

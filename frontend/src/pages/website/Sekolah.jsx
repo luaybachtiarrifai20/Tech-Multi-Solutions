@@ -114,17 +114,17 @@ function Sekolah() {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
               <p className="text-gray-600 mb-6">Untuk sekolah kecil</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 5.000.000</span>
+                <span className="text-4xl font-extrabold text-gray-900">Rp 1.000.000</span>
                 <span className="text-gray-600">/project</span>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">10 Halaman</span>
+                  <span className="text-gray-700">1 Halaman</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Manajemen Siswa Basic</span>
+                  <span className="text-gray-700">Website Static</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
@@ -136,7 +136,7 @@ function Sekolah() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">3 Bulan Support</span>
+                  <span className="text-gray-700">1 Bulan Support</span>
                 </li>
               </ul>
               <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
@@ -150,29 +150,29 @@ function Sekolah() {
               <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
               <p className="text-primary-100 mb-6">Untuk sekolah menengah</p>
               <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">Rp 12.000.000</span>
+                <span className="text-4xl font-extrabold text-white">Rp 3.000.000</span>
                 <span className="text-primary-100">/project</span>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">20 Halaman</span>
+                  <span className="text-white">3 Halaman</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Manajemen Siswa Lengkap</span>
+                  <span className="text-white">Pendaftaran Online</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Sistem Nilai & Rapor</span>
+                  <span className="text-white">CMS Admin Panel</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Portal Orang Tua</span>
+                  <span className="text-white">Responsive Design</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">6 Bulan Support</span>
+                  <span className="text-white">2 Bulan Support</span>
                 </li>
               </ul>
               <Link to="/#contact" className="block text-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition">
@@ -205,7 +205,7 @@ function Sekolah() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">12 Bulan Support</span>
+                  <span className="text-gray-700">5 Bulan Support</span>
                 </li>
               </ul>
               <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
