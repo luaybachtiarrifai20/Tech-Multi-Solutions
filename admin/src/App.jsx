@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import './index.css';
 
-const ALLOWED_EMAILS = ['multisolutionst@gmail.com', 'luaygitaris@gmail.com'];
+const ALLOWED_EMAILS = [import.meta.env.VITE_EMAIL1, import.meta.env.VITE_EMAIL2, import.meta.env.VITE_EMAIL3];
 
 function App() {
   const [user, setUser] = useState(null);

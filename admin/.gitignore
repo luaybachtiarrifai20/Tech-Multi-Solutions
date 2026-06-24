@@ -25,3 +25,4 @@ dist-ssr
 
 # Firebase service account key - NEVER commit this
 scripts/serviceAccountKey.json
+*.env
