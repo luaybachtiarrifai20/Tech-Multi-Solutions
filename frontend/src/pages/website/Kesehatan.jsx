@@ -1,6 +1,7 @@
 import { Heart, CheckCircle, ArrowRight, Calendar, User, Stethoscope, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import PricingSection from "../../components/PricingSection";
 
 function Kesehatan() {
   return (
@@ -101,120 +102,12 @@ function Kesehatan() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900">
-            Paket Harga Website Kesehatan
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Pilih paket yang sesuai dengan kebutuhan fasilitas kesehatan Anda
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
-              <p className="text-gray-600 mb-6">Untuk klinik kecil</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 1.000.000</span>
-                <span className="text-gray-600">/project</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">1 Halaman</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Website Dinamis</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Profil Dokter</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Responsive Design</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">1 Bulan Support</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
-                Pilih Paket
-              </Link>
-            </div>
-            <div className="bg-primary-600 p-8 rounded-2xl shadow-xl border-2 border-primary-500 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
-                POPULER
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
-              <p className="text-primary-100 mb-6">Untuk klinik menengah</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">Rp 3.000.000</span>
-                <span className="text-primary-100">/project</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">3 Halaman</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Booking Janji Temu</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">CMS Admin Panel</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Responsive Design</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">2 Bulan Support</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition">
-                Pilih Paket
-              </Link>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-              <p className="text-gray-600 mb-6">Untuk rumah sakit besar</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 15.000.000</span>
-                <span className="text-gray-600">/project</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">15 Halaman</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Manajemen Pasien</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">CMS Admin Panel</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">SEO Optimized</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">5 Bulan Support</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
-                Pilih Paket
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PricingSection
+        serviceId="website-kesehatan"
+        title="Paket Harga Website Kesehatan"
+        subtitle="Pilih paket yang sesuai dengan kebutuhan layanan kesehatan Anda"
+        unit="/project"
+      />
 
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary-600 to-primary-800 text-white">

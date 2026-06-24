@@ -1,8 +1,39 @@
-import { Video, CheckCircle, ArrowRight, Building, GraduationCap, ShoppingBag, Heart, Music } from "lucide-react";
+import {
+  Video,
+  CheckCircle,
+  ArrowRight,
+  Building,
+  GraduationCap,
+  ShoppingBag,
+  Heart,
+  Music,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useState, useEffect } from "react";
+import { db } from "../firebase/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 function Videografi() {
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const querySnapshot = await getDocs(
+          collection(db, "services", "videografi-umum", "packages"),
+        );
+        const packagesData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPackages(packagesData);
+      } catch (error) {
+        console.error("Error fetching packages:", error);
+      }
+    };
+    fetchPackages();
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       <Navbar activePage="/videografi" />
@@ -17,8 +48,8 @@ function Videografi() {
                 <span className="text-primary-600"> Profesional</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Kami menyediakan layanan videografi profesional untuk iklan, acara,
-                dan pembuatan konten dengan kualitas terbaik.
+                Kami menyediakan layanan videografi profesional untuk iklan,
+                acara, dan pembuatan konten dengan kualitas terbaik.
               </p>
               <Link
                 to="/#contact"
@@ -47,36 +78,48 @@ function Videografi() {
               <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="text-primary-600" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Videografi Acara</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Videografi Acara
+              </h3>
               <p className="text-gray-600">
-                Dokumentasi video profesional untuk berbagai jenis acara dan perayaan.
+                Dokumentasi video profesional untuk berbagai jenis acara dan
+                perayaan.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
               <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="text-primary-600" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Komersial</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Video Komersial
+              </h3>
               <p className="text-gray-600">
-                Video iklan dan promosi berkualitas tinggi untuk kebutuhan marketing.
+                Video iklan dan promosi berkualitas tinggi untuk kebutuhan
+                marketing.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
               <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="text-primary-600" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pembuatan Konten</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Pembuatan Konten
+              </h3>
               <p className="text-gray-600">
-                Produksi konten video kreatif untuk social media dan platform digital.
+                Produksi konten video kreatif untuk social media dan platform
+                digital.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
               <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="text-primary-600" size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Editing Video</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Editing Video
+              </h3>
               <p className="text-gray-600">
-                Layanan editing profesional dengan efek dan transisi yang menarik.
+                Layanan editing profesional dengan efek dan transisi yang
+                menarik.
               </p>
             </div>
           </div>
@@ -90,27 +133,37 @@ function Videografi() {
             Jenis Video yang Kami Buat
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Klik pada jenis video untuk melihat contoh hasil dan paket harga yang tersedia
+            Klik pada jenis video untuk melihat contoh hasil dan paket harga
+            yang tersedia
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link to="/videografi/acara" className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
+            <Link
+              to="/videografi/acara"
+              className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
               <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition">
                 <Building className="text-primary-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Acara</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Video Acara
+              </h3>
               <p className="text-gray-600 mb-4">
-                Dokumentasi profesional untuk wedding, corporate event, dan acara lainnya
+                Dokumentasi profesional untuk wedding, corporate event, dan
+                acara lainnya
               </p>
               <div className="flex items-center text-primary-600 font-medium">
                 Lihat Contoh
                 <ArrowRight className="ml-2" size={16} />
               </div>
             </Link>
-            <Link to="/videografi/komersial" className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
+            <Link
+              to="/videografi/komersial"
+              className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
               <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition">
                 <ShoppingBag className="text-primary-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Komersial</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Video Komersial
+              </h3>
               <p className="text-gray-600 mb-4">
                 Iklan TV, video promosi produk, dan materi marketing bisnis
               </p>
@@ -119,50 +172,69 @@ function Videografi() {
                 <ArrowRight className="ml-2" size={16} />
               </div>
             </Link>
-            <Link to="/videografi/edukasi" className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
+            <Link
+              to="/videografi/edukasi"
+              className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
               <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition">
                 <GraduationCap className="text-primary-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Edukasi</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Video Edukasi
+              </h3>
               <p className="text-gray-600 mb-4">
-                Tutorial, e-learning, dan konten edukatif untuk institusi pendidikan
+                Tutorial, e-learning, dan konten edukatif untuk institusi
+                pendidikan
               </p>
               <div className="flex items-center text-primary-600 font-medium">
                 Lihat Contoh
                 <ArrowRight className="ml-2" size={16} />
               </div>
             </Link>
-            <Link to="/videografi/kesehatan" className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
+            <Link
+              to="/videografi/kesehatan"
+              className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
               <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition">
                 <Heart className="text-primary-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Kesehatan</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Video Kesehatan
+              </h3>
               <p className="text-gray-600 mb-4">
-                Video medis, edukasi kesehatan, dan konten untuk rumah sakit/klinik
+                Video medis, edukasi kesehatan, dan konten untuk rumah
+                sakit/klinik
               </p>
               <div className="flex items-center text-primary-600 font-medium">
                 Lihat Contoh
                 <ArrowRight className="ml-2" size={16} />
               </div>
             </Link>
-            <Link to="/videografi/musik" className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
+            <Link
+              to="/videografi/musik"
+              className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
               <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition">
                 <Music className="text-primary-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Video Musik</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Video Musik
+              </h3>
               <p className="text-gray-600 mb-4">
-                Musik video profesional untuk artis dan band dengan kualitas tinggi
+                Musik video profesional untuk artis dan band dengan kualitas
+                tinggi
               </p>
               <div className="flex items-center text-primary-600 font-medium">
                 Lihat Contoh
                 <ArrowRight className="ml-2" size={16} />
               </div>
             </Link>
-            <Link to="/videografi/konten-sosial" className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
+            <Link
+              to="/videografi/konten-sosial"
+              className="group bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-primary-300 transition cursor-pointer">
               <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition">
                 <Video className="text-primary-600" size={32} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Konten Social Media</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Konten Social Media
+              </h3>
               <p className="text-gray-600 mb-4">
                 Video pendek untuk TikTok, Instagram Reels, dan YouTube Shorts
               </p>
@@ -185,108 +257,80 @@ function Videografi() {
             Pilih paket yang sesuai dengan kebutuhan bisnis Anda
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
-              <p className="text-gray-600 mb-6">Untuk video sederhana</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 2.000.000</span>
-                <span className="text-gray-600">/video</span>
+            {packages.map((pkg, index) => (
+              <div
+                key={pkg.id}
+                className={`${index === 1 ? "bg-primary-600 p-8 rounded-2xl shadow-xl border-2 border-primary-500 relative" : "bg-white p-8 rounded-2xl shadow-lg border border-gray-200"}`}>
+                {index === 1 && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+                    POPULER
+                  </div>
+                )}
+                <h3
+                  className={`text-2xl font-bold mb-2 ${index === 1 ? "text-white" : "text-gray-900"}`}>
+                  {pkg.name}
+                </h3>
+                <p
+                  className={`${index === 1 ? "text-primary-100" : "text-gray-600"} mb-6`}>
+                  {pkg.description}
+                </p>
+                <div className="mb-6">
+                  <span
+                    className={`text-4xl font-extrabold ${index === 1 ? "text-white" : "text-gray-900"}`}>
+                    {pkg.price}
+                  </span>
+                  <span
+                    className={
+                      index === 1 ? "text-primary-100" : "text-gray-600"
+                    }>
+                    /project
+                  </span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {pkg.features?.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <CheckCircle
+                        className={
+                          index === 1 ? "text-yellow-400" : "text-green-500"
+                        }
+                        mr-2
+                        mt-1
+                        size={16}
+                      />
+                      <span
+                        className={
+                          index === 1 ? "text-white" : "text-gray-700"
+                        }>
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                  {pkg.support && (
+                    <li className="flex items-start">
+                      <CheckCircle
+                        className={
+                          index === 1 ? "text-yellow-400" : "text-green-500"
+                        }
+                        mr-2
+                        mt-1
+                        size={16}
+                      />
+                      <span
+                        className={
+                          index === 1 ? "text-white" : "text-gray-700"
+                        }>
+                        {pkg.support}
+                      </span>
+                    </li>
+                  )}
+                </ul>
+                <Link
+                  to="/#contact"
+                  className={`block text-center px-6 py-3 font-semibold rounded-lg hover:transition ${index === 1 ? "bg-white text-primary-700 hover:bg-gray-100" : "bg-primary-600 text-white hover:bg-primary-700"}`}>
+                  Pilih Paket
+                </Link>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">1-2 Menit Durasi</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">1080p Resolution</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Basic Editing</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Background Music</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">2 Revisi</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
-                Pilih Paket
-              </Link>
-            </div>
-            <div className="bg-primary-600 p-8 rounded-2xl shadow-xl border-2 border-primary-500 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
-                POPULER
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
-              <p className="text-primary-100 mb-6">Untuk bisnis berkembang</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">Rp 5.000.000</span>
-                <span className="text-primary-100">/video</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">3-5 Menit Durasi</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">4K Resolution</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Advanced Editing</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Color Grading</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">3 Revisi</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition">
-                Pilih Paket
-              </Link>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-              <p className="text-gray-600 mb-6">Untuk bisnis besar</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 10.000.000</span>
-                <span className="text-gray-600">/video</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Unlimited Durasi</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">4K + Drone Footage</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Cinematic Editing</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Custom Animation</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Unlimited Revisi</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
-                Pilih Paket
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,8 +1,29 @@
+import { useState, useEffect } from "react";
 import { Palette, CheckCircle, ArrowRight, ShoppingBag, Building, GraduationCap, FileText, Image } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { db } from "../firebase/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 function DesainGrafis() {
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'services', 'desain-umum', 'packages'));
+        const packagesData = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setPackages(packagesData);
+      } catch (error) {
+        console.error('Error fetching packages:', error);
+      }
+    };
+    fetchPackages();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar activePage="/desain-grafis" />
@@ -185,96 +206,32 @@ function DesainGrafis() {
             Pilih paket yang sesuai dengan kebutuhan bisnis Anda
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
-              <p className="text-gray-600 mb-6">Untuk kebutuhan sederhana</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 500.000</span>
-                <span className="text-gray-600">/item</span>
+            {packages.map((pkg, index) => (
+              <div key={pkg.id} className={`${index === 1 ? 'bg-primary-600 p-8 rounded-2xl shadow-xl border-2 border-primary-500 relative' : 'bg-white p-8 rounded-2xl shadow-lg border border-gray-200'}`}>
+                {index === 1 && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+                    POPULER
+                  </div>
+                )}
+                <h3 className={`text-2xl font-bold mb-2 ${index === 1 ? 'text-white' : 'text-gray-900'}`}>{pkg.name}</h3>
+                <p className={`${index === 1 ? 'text-primary-100' : 'text-gray-600'} mb-6`}>{pkg.description}</p>
+                <div className="mb-6">
+                  <span className={`text-4xl font-extrabold ${index === 1 ? 'text-white' : 'text-gray-900'}`}>{pkg.price}</span>
+                  <span className={index === 1 ? 'text-primary-100' : 'text-gray-600'}>/item</span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {pkg.features?.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <CheckCircle className={index === 1 ? 'text-yellow-400' : 'text-green-500'} mr-2 mt-1 size={16} />
+                      <span className={index === 1 ? 'text-white' : 'text-gray-700'}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/#contact" className={`block text-center px-6 py-3 font-semibold rounded-lg hover:transition ${index === 1 ? 'bg-white text-primary-700 hover:bg-gray-100' : 'bg-primary-600 text-white hover:bg-primary-700'}`}>
+                  Pilih Paket
+                </Link>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">2 Konsep Desain</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">3 Revisi</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">File JPG/PNG</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">1 Hari Pengerjaan</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
-                Pilih Paket
-              </Link>
-            </div>
-            <div className="bg-primary-600 p-8 rounded-2xl shadow-xl border-2 border-primary-500 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
-                POPULER
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Professional</h3>
-              <p className="text-primary-100 mb-6">Untuk bisnis berkembang</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">Rp 1.500.000</span>
-                <span className="text-primary-100">/item</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">5 Konsep Desain</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">Unlimited Revisi</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">File Source (AI/PSD)</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-yellow-400 mr-2 mt-1" size={16} />
-                  <span className="text-white">3 Hari Pengerjaan</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition">
-                Pilih Paket
-              </Link>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
-              <p className="text-gray-600 mb-6">Untuk bisnis besar</p>
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-gray-900">Rp 3.500.000</span>
-                <span className="text-gray-600">/item</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Unlimited Konsep</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">Unlimited Revisi</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">File Source + Vector</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="text-green-500 mr-2 mt-1" size={16} />
-                  <span className="text-gray-700">7 Hari Pengerjaan</span>
-                </li>
-              </ul>
-              <Link to="/#contact" className="block text-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
-                Pilih Paket
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
